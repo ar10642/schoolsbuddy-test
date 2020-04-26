@@ -2,7 +2,7 @@
 
 This is Andrew Richardson's coding test for SchoolsBuddy.
 
-As specified in the Word document it is built using *AngularJS* rather than the newer Angular.
+As specified in the Word document it is built using **AngularJS** rather than the newer Angular.
 
 I based this on Angular Seed (https://github.com/angular/angular-seed) to get things running quickly. As a result, it's using no 
 build system or task runner. If this was a production AngularJS app I'd set up something like Gulp to bundle all the JS and do other
@@ -28,4 +28,4 @@ npm start
 
 It will run a simple web server on http://localhost:8000.
 
-I used node 10 to build this, try using *nvm* or similar if you can't get it to run.
+I used node 10 to build this, try using **nvm** or similar if you can't get it to run.
