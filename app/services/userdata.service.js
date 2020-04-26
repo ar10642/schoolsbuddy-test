@@ -319,9 +319,18 @@ function userDataService() {
         }
     ]
 
-    // Get user data, sorted by name
-    service.getUserData = function() {
-        return service.userData.sort(function(a, b) {
+    // Get user data, sorted by name, apply filter if applicable
+    service.getUserData = function(filter) {
+
+        if(filter.length > 0) {
+            var userData = service.userData.filter(function(user) {
+                return user.name.toLowerCase().indexOf(filter.toLowerCase()) > -1;
+            });
+        } else {
+            var userData = service.userData;
+        }
+
+        return userData.sort(function(a, b) {
             if(a.name < b.name) {
                 return -1;
             }

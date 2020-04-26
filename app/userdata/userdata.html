@@ -7,7 +7,8 @@
                class="form-control" 
                aria-label="Search by name" 
                placeholder="Search by name"
-               ng-model="filter">
+               ng-model="filter"
+               ng-change="filterChanged()">
     </div>
 </div>
 
@@ -22,13 +23,18 @@
                 <th>Balance</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody ng-if="userData.length &gt; 0">
             <tr ng-repeat="user in userData">
                 <td>{{user.name}}</td>
                 <td>{{user.age}}</td>
                 <td>{{getDate(user.registered) | date: 'dd-mm-yyyy hh:mm:ss'}}</td>
                 <td>{{user.email}}</td>
                 <td>{{getNumber(user.balance) | currency: '£': 2}}</td>
+            </tr>
+        </tbody>
+        <tbody ng-if="userData.length == 0">
+            <tr>
+                <td colspan="5" class="text-center">No users found with name '{{filter}}'</td>
             </tr>
         </tbody>
     </table>

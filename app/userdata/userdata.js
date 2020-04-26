@@ -9,12 +9,13 @@ angular.module('schoolsBuddyTest.userdata', ['ngRoute'])
 }])
 .controller('UserDataController', UserDataController);
 
-UserDataController.$inject = ['$scope', 'userDataService']; 
+UserDataController.$inject = ['$scope', '$timeout', 'userDataService']; 
 
-function UserDataController($scope, userDataService) {
+function UserDataController($scope, $timeout, userDataService) {
 
+  var timeout = $timeout(function() {});
   $scope.filter = '';
-  $scope.userData = userDataService.getUserData();
+  $scope.userData = userDataService.getUserData($scope.filter);
 
   $scope.getDate = function(dateString) {
     return new Date(dateString.split(' ').join(''));
@@ -22,6 +23,13 @@ function UserDataController($scope, userDataService) {
 
   $scope.getNumber = function(numberString) {
     return parseFloat(numberString.replace(/\,/g, ''));
+  }
+
+  $scope.filterChanged = function() {
+    $timeout.cancel(timeout);
+    timeout = $timeout(function() {
+      $scope.userData = userDataService.getUserData($scope.filter);
+    }, 500);
   }
 
 };
