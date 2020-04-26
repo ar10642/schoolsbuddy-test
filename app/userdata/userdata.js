@@ -13,4 +13,15 @@ UserDataController.$inject = ['$scope', 'userDataService'];
 
 function UserDataController($scope, userDataService) {
 
+  $scope.filter = '';
+  $scope.userData = userDataService.getUserData();
+
+  $scope.getDate = function(dateString) {
+    return new Date(dateString.split(' ').join(''));
+  }
+
+  $scope.getNumber = function(numberString) {
+    return parseFloat(numberString.replace(/\,/g, ''));
+  }
+
 };
