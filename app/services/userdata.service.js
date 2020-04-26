@@ -341,5 +341,12 @@ function userDataService() {
         });
     }
 
+    // Set all users' balances to zero
+    service.resetBalances = function() {
+        service.userData.forEach(function(user) {
+            user.balance = "0";
+        });
+    }
+
     return service;
 }

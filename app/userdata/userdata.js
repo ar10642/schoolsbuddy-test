@@ -32,4 +32,9 @@ function UserDataController($scope, $timeout, userDataService) {
     }, 500);
   }
 
+  $scope.resetBalances = function() {
+    userDataService.resetBalances();
+    $scope.userData = userDataService.getUserData($scope.filter);
+  }
+
 };
