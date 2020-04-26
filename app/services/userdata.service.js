@@ -6,7 +6,7 @@ angular
 
 function userDataService() {
 
-    var service;
+    var service = {};
 
     service.userData = [
         {
