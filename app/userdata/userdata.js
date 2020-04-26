@@ -9,8 +9,8 @@ angular.module('schoolsBuddyTest.userdata', ['ngRoute'])
 }])
 .controller('UserDataController', UserDataController);
 
-UserDataController.$inject = ['$scope']; 
+UserDataController.$inject = ['$scope', 'userDataService']; 
 
-function UserDataController($scope) {
+function UserDataController($scope, userDataService) {
 
 };
